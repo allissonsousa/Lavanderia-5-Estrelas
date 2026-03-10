@@ -391,7 +391,12 @@
       font-size: 96px;
       position: relative;
       overflow: hidden;
-      /* ★ Substitua por <img src="..." alt="..."> */
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     .featured-post-img::after {
@@ -628,7 +633,12 @@
       justify-content: center;
       font-size: 52px;
       transition: transform .4s ease;
-      /* ★ Substitua por <img src="..." ...> */
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     .post-card-thumb:nth-child(1) .post-card-img-inner {
@@ -884,48 +894,6 @@
       transform: translateY(-1px);
     }
 
-    /* ── PAGINAÇÃO ───────────────────────────────────────── */
-    .pagination {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      justify-content: center;
-      margin-top: 56px;
-    }
-
-    .page-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all .2s;
-      border: 1.5px solid var(--gray-200);
-      color: var(--gray-600);
-      background: var(--white);
-    }
-
-    .page-btn:hover {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-
-    .page-btn.active {
-      background: var(--blue);
-      color: var(--white);
-      border-color: var(--blue);
-    }
-
-    .page-btn--wide {
-      width: auto;
-      padding: 0 16px;
-      border-radius: 999px;
-    }
 
     /* ── CTA STRIP ──────────────────────────────────────── */
     .blog-cta-strip {
@@ -933,6 +901,7 @@
       border-radius: var(--radius-xl);
       padding: 56px 64px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: space-between;
       gap: 32px;
@@ -1262,10 +1231,11 @@
         </div>
 
         <!-- POST DESTAQUE -->
-        <a href="posts/como-conservar-roupas.html" class="featured-post reveal">
+        <a href="posts/segredos-post.html" class="featured-post reveal">
           <div class="featured-post-img" style="background: linear-gradient(135deg,#00B5E2,#006E8F)">
-            👗
-            <!-- ★ Substitua por <img src="../assets/img/blog/post-destaque.webp" alt="..."> -->
+            <img
+              src="https://images.unsplash.com/photo-1603251578711-3290ca1a0187?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Roupa conservada">
           </div>
           <div class="featured-post-body">
             <span class="featured-label">📌 Post em destaque</span>
@@ -1275,8 +1245,8 @@
               lavagem? Descubra os erros mais comuns e como evitá-los com técnicas simples e acessíveis.</p>
             <div class="post-meta">
               <div class="post-meta-author">
-                <div class="post-meta-avatar">AS</div>
-                <span class="post-meta-name">Ana Silva</span>
+                <div class="post-meta-avatar">PR</div>
+                <span class="post-meta-name">Paulo Roberto</span>
               </div>
               <span>15 jan 2026</span>
               <span class="read-time">⏱ 6 min de leitura</span>
@@ -1312,7 +1282,11 @@
 
               <article class="post-card reveal" data-category="dicas">
                 <div class="post-card-thumb">
-                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#e0f5fb,#b3e8f7)">🧺</div>
+                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#e0f5fb,#b3e8f7)">
+                    <img
+                      src="https://images.unsplash.com/photo-1692576855758-318a1fa8ff6d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="roupas separadas">
+                  </div>
                 </div>
                 <div class="post-card-body">
                   <span class="post-category post-category--dicas">💡 Dicas</span>
@@ -1328,7 +1302,11 @@
 
               <article class="post-card reveal reveal-delay-1" data-category="cuidados">
                 <div class="post-card-thumb">
-                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#fffbe0,#ffe99a)">👔</div>
+                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#fffbe0,#ffe99a)">
+                    <img
+                      src="https://images.unsplash.com/photo-1585412459212-8def26f7e84c?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="lavar ternos">
+                  </div>
                 </div>
                 <div class="post-card-body">
                   <span class="post-category post-category--cuidados">🧴 Cuidados</span>
@@ -1344,7 +1322,11 @@
 
               <article class="post-card reveal" data-category="sustentabilidade">
                 <div class="post-card-thumb">
-                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">🌿</div>
+                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#d1fae5,#6ee7b7)">
+                    <img
+                      src="https://plus.unsplash.com/premium_photo-1737180621286-c2250ccce178?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="produtos ecologicos">
+                  </div>
                 </div>
                 <div class="post-card-body">
                   <span class="post-category post-category--sustentabilidade">🌿 Sustentabilidade</span>
@@ -1361,7 +1343,11 @@
 
               <article class="post-card reveal reveal-delay-1" data-category="novidades">
                 <div class="post-card-thumb">
-                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#1C3540,#00B5E2)">🎉</div>
+                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#1C3540,#00B5E2)">
+                    <img
+                      src="https://plus.unsplash.com/premium_photo-1682309834966-485aedc99be5?q=80&w=912&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="plano premium">
+                  </div>
                 </div>
                 <div class="post-card-body">
                   <span class="post-category post-category--novidades">🆕 Novidades</span>
@@ -1378,7 +1364,11 @@
               <!-- Posts horizontais -->
               <article class="post-card post-card--horizontal reveal" data-category="dicas">
                 <div class="post-card-thumb">
-                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">🛏️</div>
+                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#fce7f3,#fbcfe8)">
+                    <img
+                      src="https://images.unsplash.com/photo-1666934209606-a955a12edd63?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="frequencia lavar lençóis">
+                  </div>
                 </div>
                 <div class="post-card-body">
                   <span class="post-category post-category--dicas">💡 Dicas</span>
@@ -1396,7 +1386,11 @@
 
               <article class="post-card post-card--horizontal reveal reveal-delay-1" data-category="cuidados">
                 <div class="post-card-thumb">
-                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#ede9fe,#c4b5fd)">🏷️</div>
+                  <div class="post-card-img-inner" style="background:linear-gradient(135deg,#ede9fe,#c4b5fd)">
+                    <img
+                      src="https://plus.unsplash.com/premium_photo-1673356301514-2cad91907f74?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="etiquetas de lavagem">
+                  </div>
                 </div>
                 <div class="post-card-body">
                   <span class="post-category post-category--cuidados">🧴 Cuidados</span>
@@ -1412,103 +1406,93 @@
 
             </div>
 
-            <!-- Paginação -->
-            <div class="pagination">
-              <button class="page-btn page-btn--wide">← Anterior</button>
-              <button class="page-btn active">1</button>
-              <button class="page-btn">2</button>
-              <button class="page-btn">3</button>
-              <span style="color:var(--gray-400); padding:0 4px">…</span>
-              <button class="page-btn">8</button>
-              <button class="page-btn page-btn--wide">Próxima →</button>
-            </div>
-          </div>
 
-          <!-- Sidebar -->
-          <aside class="sidebar">
-            <div class="sidebar-widget">
-              <div class="sidebar-widget-header">📂 Categorias</div>
-              <div class="sidebar-widget-body">
-                <div class="category-list">
-                  <div class="category-item active" onclick="filterPosts('todos', null)">
-                    <span>🗂 Todos os artigos</span>
-                    <span class="category-count">32</span>
-                  </div>
-                  <div class="category-item" onclick="filterPosts('dicas', null)">
-                    <span>💡 Dicas</span>
-                    <span class="category-count">14</span>
-                  </div>
-                  <div class="category-item" onclick="filterPosts('cuidados', null)">
-                    <span>🧴 Cuidados</span>
-                    <span class="category-count">9</span>
-                  </div>
-                  <div class="category-item" onclick="filterPosts('novidades', null)">
-                    <span>🆕 Novidades</span>
-                    <span class="category-count">5</span>
-                  </div>
-                  <div class="category-item" onclick="filterPosts('sustentabilidade', null)">
-                    <span>🌿 Sustentabilidade</span>
-                    <span class="category-count">4</span>
+            <!-- Sidebar -->
+            <aside class="sidebar">
+              <div class="sidebar-widget">
+                <div class="sidebar-widget-header">📂 Categorias</div>
+                <div class="sidebar-widget-body">
+                  <div class="category-list">
+                    <div class="category-item active" onclick="filterPosts('todos', null)">
+                      <span>🗂 Todos os artigos</span>
+                      <span class="category-count">5</span>
+                    </div>
+                    <div class="category-item" onclick="filterPosts('dicas', null)">
+                      <span>💡 Dicas</span>
+                      <span class="category-count">2</span>
+                    </div>
+                    <div class="category-item" onclick="filterPosts('cuidados', null)">
+                      <span>🧴 Cuidados</span>
+                      <span class="category-count">2</span>
+                    </div>
+                    <div class="category-item" onclick="filterPosts('novidades', null)">
+                      <span>🆕 Novidades</span>
+                      <span class="category-count">1</span>
+                    </div>
+                    <div class="category-item" onclick="filterPosts('sustentabilidade', null)">
+                      <span>🌿 Sustentabilidade</span>
+                      <span class="category-count">1</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="sidebar-widget">
-              <div class="sidebar-widget-header">🔥 Mais lidos</div>
-              <div class="sidebar-widget-body">
-                <div class="popular-list">
-                  <a href="posts/etiquetas-lavagem.html" class="popular-item">
-                    <span class="popular-num">01</span>
-                    <div>
-                      <div class="popular-title">Desvendando as etiquetas de lavagem</div>
-                      <div class="popular-date">8 dez 2025</div>
-                    </div>
-                  </a>
-                  <a href="posts/como-conservar-roupas.html" class="popular-item">
-                    <span class="popular-num">02</span>
-                    <div>
-                      <div class="popular-title">10 segredos para conservar suas roupas favoritas</div>
-                      <div class="popular-date">15 jan 2026</div>
-                    </div>
-                  </a>
-                  <a href="posts/frequencia-lavar-lencois.html" class="popular-item">
-                    <span class="popular-num">03</span>
-                    <div>
-                      <div class="popular-title">Com que frequência lavar lençóis e toalhas?</div>
-                      <div class="popular-date">15 dez 2025</div>
-                    </div>
-                  </a>
-                  <a href="posts/lavar-terno-blazer.html" class="popular-item">
-                    <span class="popular-num">04</span>
-                    <div>
-                      <div class="popular-title">Guia completo: lavar terno e blazer</div>
-                      <div class="popular-date">5 jan 2026</div>
-                    </div>
-                  </a>
+              <div class="sidebar-widget">
+                <div class="sidebar-widget-header">🔥 Mais lidos</div>
+                <div class="sidebar-widget-body">
+                  <div class="popular-list">
+                    <a href="posts/etiquetas-lavagem.html" class="popular-item">
+                      <span class="popular-num">01</span>
+                      <div>
+                        <div class="popular-title">Desvendando as etiquetas de lavagem</div>
+                        <div class="popular-date">8 dez 2025</div>
+                      </div>
+                    </a>
+                    <a href="posts/segredos-post.html" class="popular-item">
+                      <span class="popular-num">02</span>
+                      <div>
+                        <div class="popular-title">10 segredos para conservar suas roupas favoritas</div>
+                        <div class="popular-date">15 jan 2026</div>
+                      </div>
+                    </a>
+                    <a href="posts/frequencia-lavar-lencois.html" class="popular-item">
+                      <span class="popular-num">03</span>
+                      <div>
+                        <div class="popular-title">Com que frequência lavar lençóis e toalhas?</div>
+                        <div class="popular-date">15 dez 2025</div>
+                      </div>
+                    </a>
+                    <a href="posts/lavar-terno-blazer.html" class="popular-item">
+                      <span class="popular-num">04</span>
+                      <div>
+                        <div class="popular-title">Guia completo: lavar terno e blazer</div>
+                        <div class="popular-date">5 jan 2026</div>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="newsletter-widget">
-              <h4>📬 Receba nossas dicas</h4>
-              <p>Novos artigos toda semana direto no seu e-mail. Sem spam, só conteúdo útil.</p>
-              <input class="newsletter-input" type="email" placeholder="seu@email.com" />
-              <button class="newsletter-btn">Quero receber!</button>
-            </div>
-          </aside>
-        </div>
-
-        <!-- CTA Strip -->
-        <div class="blog-cta-strip reveal">
-          <div>
-            <h3>Gostou do conteúdo?<br>Experimente o nosso serviço.</h3>
-            <p>Primeiro pedido com 20% de desconto para novos clientes. Coleta em domicílio inclusa.</p>
+              <div class="newsletter-widget">
+                <h4>📬 Receba nossas dicas</h4>
+                <p>Novos artigos toda semana direto no seu e-mail. Sem spam, só conteúdo útil.</p>
+                <input class="newsletter-input" type="email" placeholder="seu@email.com" />
+                <button class="newsletter-btn">Quero receber!</button>
+              </div>
+            </aside>
           </div>
-          <a href="https://wa.me/5535997024901" class="btn btn--primary"
-            style="flex-shrink:0; font-size:16px; padding:16px 36px">Solicitar orçamento grátis</a>
+
+          <!-- CTA Strip -->
+          <div class="blog-cta-strip reveal">
+            <div>
+              <h3>Gostou do conteúdo?<br>Experimente o nosso serviço.</h3>
+              <p>Primeiro pedido com 20% de desconto para novos clientes. Coleta em domicílio inclusa.</p>
+            </div>
+            <a href="https://wa.me/5535997024901" class="btn btn--primary"
+              style="flex-shrink:0; font-size:16px; padding:16px 16px; text-align: center;">Solicitar
+              orçamento grátis</a>
+          </div>
         </div>
-      </div>
     </section>
   </main>
 
