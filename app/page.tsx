@@ -31,7 +31,6 @@ export default function Home() {
     const mensagem = encodeURIComponent(
       `Olá! Gostaria de solicitar a lavagem de: ${itensSelecionados}. Total estimado: ${formatCurrency(totalValue)}`
     );
-
     window.open(`https://wa.me/5535997666404?text=${mensagem}`, '_blank');
     // Abre o WhatsApp com a mensagem pronta
   };
