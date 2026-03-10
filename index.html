@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Lavanderia 5 Estrelas — Cuidado profissional com suas roupas. Lavagem, secagem e passadoria com qualidade superior em Belo Horizonte." />
+  <meta property="og:title" content="Lavanderia 5 Estrelas" />
+  <meta property="og:description" content="Cuidado profissional com suas roupas. Calcule o valor agora." />
+  <title>Lavanderia 5 Estrelas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       TOKENS — edite aqui para mudar todo o visual do site
+    ============================================================ */
+    :root {
+      --blue: #00B5E2;
+      /* Pantone 306C */
+      --blue-dark: #0090B8;
+      --blue-deeper: #006E8F;
+      --yellow: #FFF3B0;
+      /* Amarelo claro */
+      --yellow-mid: #FFE566;
+      --white: #FFFFFF;
+      --off-white: #F7FBFD;
+      --gray-100: #EDF4F7;
+      --gray-200: #D6E8EF;
+      --gray-400: #8BAEBB;
+      --gray-600: #4A6E7A;
+      --gray-800: #1C3540;
+      --black: #0D2029;
+
+      --font-display: 'Sora', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-xl: 40px;
+
+      --shadow-sm: 0 2px 8px rgba(0, 181, 226, .10);
+      --shadow-md: 0 8px 32px rgba(0, 181, 226, .18);
+      --shadow-lg: 0 20px 60px rgba(0, 181, 226, .20);
+
+      --container: 1200px;
+      --nav-h: 76px;
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--gray-800);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font: inherit;
+    }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section--alt {
+      background: var(--off-white);
+    }
+
+    .section--dark {
+      background: var(--gray-800);
+      color: var(--white);
+    }
+
+    .section--blue {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .section--yellow {
+      background: var(--yellow);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue-deeper);
+      background: var(--yellow);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .section-title span {
+      color: var(--blue);
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--gray-600);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-header--center {
+      text-align: center;
+    }
+
+    .section-header--center .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      transition: all .25s ease;
+    }
+
+    .btn--primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(0, 181, 226, .35);
+    }
+
+    .btn--primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 181, 226, .45);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+    }
+
+    .btn--outline:hover {
+      background: var(--blue);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn--white {
+      background: var(--white);
+      color: var(--blue-deeper);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
+    }
+
+    .btn--white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .18);
+    }
+
+    .btn--yellow {
+      background: var(--yellow-mid);
+      color: var(--black);
+    }
+
+    .btn--yellow:hover {
+      background: #FFD700;
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gray-200);
+      transition: box-shadow .3s;
+
+
+    }
+
+    .header .container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    ;
+
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100px;
+      padding: 0px 20px;
+    }
+
+    /* ── LOGO ── */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    /* 
+      LOGO PLACEHOLDER — substitua o conteúdo abaixo pelo seu logotipo.
+      Troque o <div class="logo-img"> por <img src="assets/img/logo.svg" alt="Lavanderia 5 Estrelas">
+    */
+    .logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--black);
+    }
+
+    .logo-tagline {
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--gray-600);
+      transition: color .2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: width .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gray-800);
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 24px;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 999;
+      box-shadow: var(--shadow-md);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--gray-800);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0, 181, 226, .12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 243, 176, .6) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue-deeper);
+      background: var(--yellow);
+      padding: 7px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      animation: fadeUp .6s ease both;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 24px;
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    .hero-title .highlight {
+      color: var(--blue);
+      position: relative;
+    }
+
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: var(--yellow);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 480px;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      animation: fadeUp .6s .3s ease both;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--gray-200);
+      animation: fadeUp .6s .4s ease both;
+    }
+
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-top: 2px;
+    }
+
+    /* Hero visual — imagem placeholder */
+    .hero-visual {
+      position: relative;
+      animation: fadeRight .8s .2s ease both;
+    }
+
+    .hero-image-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      height: auto;
+    }
+
+
+
+    .hero-image-placeholder p {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-image-placeholder img {
+      width: 100%;
+      margin: 0;
+      object-fit: fill;
+      height: auto;
+      overflow: hidden;
+    }
+
+    /* floating badge */
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -24px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-badge-icon {
+      font-size: 28px;
+    }
+
+    .hero-badge-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--black);
+    }
+
+    .hero-badge-text span {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    .hero-badge2 {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: var(--yellow);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      animation: float 4s 2s ease-in-out infinite;
+    }
+
+    .hero-badge2 strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--black);
+    }
+
+    .hero-badge2 span {
+      font-size: 11px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       DIFERENCIAIS
+    ============================================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform .3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       SERVIÇOS
+    ============================================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all .3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card-thumb {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      background: linear-gradient(135deg, var(--gray-100) 0%, var(--yellow) 100%);
+    }
+
+    .service-card-body {
+      padding: 24px;
+    }
+
+    .service-card-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+
+    .service-card-desc {
+      font-size: 14px;
+      color: var(--gray-600);
+      margin-bottom: 20px;
+    }
+
+    .service-card-price {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      background: rgba(0, 181, 226, .1);
+      padding: 4px 12px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* ============================================================
+       PARALLAX SECTIONS
+    ============================================================ */
+
+    /* ── Parallax 1: entre Diferenciais e Serviços ── */
+    #parallax1,
+    #parallax2 {
+      will-change: transform;
+      /* Prepara o navegador para a mudança */
+      transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+      /* Suaviza pequenas variações */
+    }
+
+    .parallax-banner {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parallax-bg {
+      position: absolute;
+      inset: -80px 0;
+      /* oversized so parallax has room to move */
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+      transition: transform .05s linear;
+    }
+
+    /* Unsplash generic laundry image — replace with your own */
+    .parallax-banner--laundry .parallax-bg {
+      background-image:
+        linear-gradient(rgba(13, 32, 41, .62), rgba(0, 144, 184, .45)),
+        url('https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=1600&q=80');
+    }
+
+    .parallax-banner--ironing .parallax-bg {
+      background-image:
+        linear-gradient(rgba(13, 32, 41, .55), rgba(0, 110, 143, .5)),
+        url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&q=80');
+    }
+
+    .parallax-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 820px;
+    }
+
+    .parallax-content .eyebrow {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--yellow-mid);
+      margin-bottom: 18px;
+    }
+
+    .parallax-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, .3);
+    }
+
+    .parallax-content h2 span {
+      color: var(--yellow-mid);
+    }
+
+    .parallax-content p {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .82);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, .25);
+    }
+
+    .parallax-content .parallax-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* decorative side lines */
+    .parallax-content::before,
+    .parallax-content::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 80px;
+      height: 1px;
+      background: rgba(255, 255, 255, .25);
+    }
+
+    .parallax-content::before {
+      right: calc(100% + 24px);
+    }
+
+    .parallax-content::after {
+      left: calc(100% + 24px);
+    }
+
+    /* ============================================================
+       SERVIÇOS — SLIDE-IN HORIZONTAL
+       Cards entram da esquerda (ímpares) e da direita (pares)
+    ============================================================ */
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .slide-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .slide-left.visible,
+    .slide-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* stagger per card */
+    .slide-left.delay-1,
+    .slide-right.delay-1 {
+      transition-delay: .08s;
+    }
+
+    .slide-left.delay-2,
+    .slide-right.delay-2 {
+      transition-delay: .18s;
+    }
+
+    .slide-left.delay-3,
+    .slide-right.delay-3 {
+      transition-delay: .28s;
+    }
+
+    .slide-left.delay-4,
+    .slide-right.delay-4 {
+      transition-delay: .36s;
+    }
+
+    .slide-left.delay-5,
+    .slide-right.delay-5 {
+      transition-delay: .44s;
+    }
+
+    /* ============================================================
+       CALCULADORA DE PREÇOS
+       
+    ============================================================ */
+    .calculator {
+      background: var(--white);
+    }
+
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 370px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .calc-table-wrap {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .calc-table thead tr {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .calc-table th {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      text-align: left;
+    }
+
+    .calc-table th:last-child {
+      text-align: center;
+    }
+
+    .calc-table tbody tr {
+      border-bottom: 1px solid var(--gray-100);
+      transition: background .2s;
+    }
+
+    .calc-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .calc-table tbody tr:hover {
+      background: var(--off-white);
+    }
+
+    .calc-table td {
+      padding: 14px 20px;
+      font-size: 15px;
+      color: var(--gray-800);
+    }
+
+    .calc-table td .category-label {
+      font-size: 11px;
+      color: var(--gray-400);
+      display: block;
+    }
+
+    .calc-table td .item-name {
+      font-weight: 500;
+    }
+
+    .calc-table td .item-price {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--blue-deeper);
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--gray-100);
+      color: var(--gray-800);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .qty-btn:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .qty-value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      min-width: 28px;
+      text-align: center;
+      color: var(--black);
+    }
+
+    /* Resumo da calculadora */
+    .calc-summary {
+      background: var(--gray-800);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+      color: var(--white);
+    }
+
+    .calc-summary h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .calc-items-list {
+      margin-bottom: 24px;
+      min-height: 80px;
+    }
+
+    .calc-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      font-size: 14px;
+    }
+
+    .calc-item-row:last-child {
+      border-bottom: none;
+    }
+
+    .calc-item-name {
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .calc-item-val {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--yellow-mid);
+    }
+
+    .calc-empty {
+      text-align: center;
+      padding: 32px 0;
+      color: rgba(255, 255, 255, .35);
+      font-size: 14px;
+    }
+
+    .calc-empty .icon {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .calc-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      margin: 20px 0;
+    }
+
+    .calc-total-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .calc-total-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .calc-total-value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+      margin: 4px;
+      align-self: center;
+    }
+
+    .calc-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .35);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .calc-cta {
+      margin-top: 28px;
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+      transition: all .25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .calc-cta:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 181, 226, .35);
+    }
+
+    .calc-reset {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .35);
+      cursor: pointer;
+      transition: color .2s;
+    }
+
+    .calc-reset:hover {
+      color: rgba(255, 255, 255, .7);
+    }
+
+    /* ============================================================
+       PLANOS / MENSALIDADES
+    ============================================================ */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .plan-card {
+      background: var(--white);
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all .3s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .plan-card--popular {
+      border-color: var(--blue);
+      box-shadow: var(--shadow-md);
+      transform: scale(1.02);
+    }
+
+    .plan-card--popular:hover {
+      transform: scale(1.02) translateY(-6px);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .plan-currency {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-400);
+      margin-bottom: 6px;
+    }
+
+    .plan-amount {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--black);
+    }
+
+    .plan-period {
+      font-size: 14px;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+
+    .plan-desc {
+      font-size: 14px;
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--gray-100);
+      line-height: 1.65;
+    }
+
+    .plan-features {
+      flex: 1;
+      margin-bottom: 32px;
+    }
+
+    .plan-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--gray-700);
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .plan-feature:last-child {
+      border-bottom: none;
+    }
+
+    .plan-feature-icon {
+      color: var(--blue);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .plan-feature--disabled {
+      color: var(--gray-400);
+    }
+
+    .plan-feature--disabled .plan-feature-icon {
+      color: var(--gray-200);
+    }
+
+    .plan-cta {
+      width: 100%;
+      padding: 15px;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+      transition: all .25s;
+      cursor: pointer;
+      border: 2px solid var(--blue);
+      color: var(--blue);
+      background: transparent;
+    }
+
+    .plan-cta:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .plan-card--popular .plan-cta {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .plan-card--popular .plan-cta:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+    }
+
+    /* ============================================================
+       DEPOIMENTOS
+    ============================================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all .3s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-stars {
+      color: var(--yellow-mid);
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deeper) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--black);
+    }
+
+    .testimonial-role {
+      font-size: 13px;
+      color: var(--gray-400);
+    }
+
+    /* ============================================================
+       CTA BANNER
+    ============================================================ */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deeper) 100%);
+      border-radius: var(--radius-xl);
+      padding: 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, .07);
+      border-radius: 50%;
+    }
+
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -30px;
+      width: 250px;
+      height: 250px;
+      background: rgba(255, 255, 255, .05);
+      border-radius: 50%;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, .8);
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-banner-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       CONTATO / FORMULÁRIO
+    ============================================================ */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 181, 226, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 12px;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .contact-item-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group--full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-800);
+      letter-spacing: .02em;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--gray-800);
+      background: var(--white);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0, 181, 226, .15);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all .25s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 181, 226, .35);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .form-success .icon {
+      font-size: 52px;
+      margin-bottom: 16px;
+    }
+
+    .form-success h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .form-success p {
+      font-size: 15px;
+      color: var(--gray-600);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    /* LOGO NO FOOTER — substitua igual ao header */
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo .logo-img {
+      background: var(--blue);
+    }
+
+    .footer-logo .logo-name {
+      color: var(--white);
+    }
+
+    .footer-logo .logo-tagline {
+      color: rgba(255, 255, 255, .35);
+    }
+
+    .footer-about {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, .07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: background .2s;
+    }
+
+    .footer-social:hover {
+      background: var(--blue);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .4);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .6);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-text {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .6);
+      line-height: 1.5;
+    }
+
+    .footer-bottom {
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .3);
+    }
+
+    /* ============================================================
+       WHATSAPP FLUTUANTE
+    ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, .4);
+      transition: all .3s;
+      animation: pulse-green 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, .5);
+    }
+
+    /* ============================================================
+       ANIMAÇÕES
+    ============================================================ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeRight {
+      from {
+        opacity: 0;
+        transform: translateX(32px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse-green {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, .4);
+      }
+
+      50% {
+        box-shadow: 0 4px 40px rgba(37, 211, 102, .7);
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVO
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .calc-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .calc-summary {
+        position: static;
+      }
+
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+
+      .plan-card--popular {
+        transform: scale(1);
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .cta-banner {
+        padding: 60px 40px;
+      }
+    }
+
+    @media (max-width: 800px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 72px 0;
+      }
+
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-badge,
+      .hero-badge2 {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+
+        <!-- 
+          ★ LOGO — substitua o bloco .logo-img por:
+             <img src="assets/img/logo.svg" alt="Lavanderia 5 Estrelas" style="height:44px">
+        -->
+        <a href="/" class="logo" aria-label="Lavanderia 5 Estrelas — Início">
+          <div class="logo-img" aria-hidden="true">🌟</div>
+          <div class="logo-text">
+            <span class="logo-name">Lavanderia 5 Estrelas</span>
+            <span class="logo-tagline">Qualidade superior</span>
+          </div>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#servicos">Serviços</a></li>
+
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="blog/blog-index.html" class="active">Blog</a></li>
+
+        </ul>
+
+        <div class="nav-cta">
+          <a href="#calculadora" class="btn btn--primary" style="padding:10px 20px; font-size:13px">Orçamento grátis</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
+      <a href="#servicos">Serviços</a>
+      <a href="#calculadora">Calcule o Preço</a>
+      <a href="#planos">Planos</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="blog/blog-index.html">Blog</a>
+      <a href="#contato" class="btn btn--primary" style="text-align:center">Orçamento grátis</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" aria-label="Bem-vindo">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <span class="hero-label">✨ #1 em Areado/MG</span>
+            <h1 class="hero-title">
+              Suas roupas com<br>
+              <span class="highlight">cuidado profissional</span>
+            </h1>
+            <p class="hero-desc">
+              Lavagem, secagem e passadoria com qualidade superior. Entrega em domicílio, serviço expresso e planos
+              mensais para sua praticidade.
+            </p>
+            <div class="hero-actions">
+              <a href="#calculadora" class="btn btn--primary">Calcular preço agora</a>
+              <a href="#planos" class="btn btn--outline">Ver planos</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-value">+5.000</div>
+                <div class="hero-stat-label">Clientes satisfeitos</div>
+              </div>
+              <div>
+                <div class="hero-stat-value">
+                  <script>document.write(new Date().getFullYear() - 2018)</script> anos
+                </div>
+                <div class="hero-stat-label">De experiência</div>
+              </div>
+              <div>
+                <div class="hero-stat-value">24h</div>
+                <div class="hero-stat-label">Serviço expresso</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1614583628373-15432d6449f9?q=80&w=812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Roupas limpas e organizadas" style="border-radius:var(--radius-lg)">
+            </div>
+            <div class="hero-badge">
+              <div class="hero-badge-icon">⭐</div>
+              <div class="hero-badge-text">
+                <strong>Avaliação 4.9/5</strong>
+                <span>+300 avaliações</span>
+              </div>
+            </div>
+            <div class="hero-badge2">
+              <strong>🚚</strong>
+              <span>Coleta e entrega grátis<br>em nossa cidade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DIFERENCIAIS
+    ============================================================ -->
+    <section class="section section--alt" aria-label="Diferenciais">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="badge">Por que nos escolher</span>
+          <h2 class="section-title">O cuidado que suas roupas <span>merecem</span></h2>
+          <p class="section-subtitle">Combinamos tecnologia de ponta com atenção artesanal para garantir o melhor
+            resultado.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-title">Serviço Expresso</div>
+            <div class="feature-desc">Entregamos em até 24 horas para pedidos urgentes, sem abrir mão da qualidade.
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🧴</span>
+            <div class="feature-title">Produtos Premium</div>
+            <div class="feature-desc">Usamos produtos hipoalergênicos e ecológicos que preservam tecidos e cores.</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🚚</span>
+            <div class="feature-title">Coleta e Entrega</div>
+            <div class="feature-desc">Buscamos e entregamos em casa ou no trabalho, no horário que você preferir.</div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🛡️</span>
+            <div class="feature-title">Garantia Total</div>
+            <div class="feature-desc">Se não ficar satisfeito, lavamos novamente sem custo. Sua satisfação em primeiro
+              lugar.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PARALLAX 1 — entre Diferenciais e Serviços
+    ============================================================ -->
+    <div class="parallax-banner parallax-banner--laundry" aria-hidden="false">
+      <div class="parallax-bg" id="parallax1"></div>
+      <div class="parallax-content">
+        <span class="eyebrow">✦ Qualidade que você vê e sente</span>
+        <h2>Cada peça tratada com <span>cuidado artesanal</span></h2>
+        <p>Combinamos tecnologia de ponta com atenção aos detalhes para garantir que suas roupas voltem impecáveis —
+          sempre.</p>
+        <div class="parallax-actions">
+          <a href="#calculadora" class="btn btn--primary">Calcular preço agora</a>
+          <a href="#planos" class="btn btn--white">Ver planos mensais</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SERVIÇOS
+    ============================================================ -->
+    <section class="section" id="servicos" aria-label="Serviços">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">O que fazemos</span>
+          <h2 class="section-title">Nossos <span>serviços</span></h2>
+          <p class="section-subtitle">Soluções completas para cada necessidade — do cotidiano ao especial.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card slide-left delay-1">
+            <div class="service-card-thumb">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1664202526535-c01e4b0c42b7?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="convencional" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md)">
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Lavagem Convencional</h3>
+              <p class="service-card-desc">Ideal para roupas do dia a dia. Lavagem, centrifugação e secagem com máxima
+                eficiência.</p>
+              <span class="service-card-price">A partir de R$3,00/peça</span>
+            </div>
+          </div>
+
+          <div class="service-card slide-left delay-2">
+            <div class="service-card-thumb">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1726876859106-9deef9531e05?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="passadoria" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md)">
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Passadoria</h3>
+              <p class="service-card-desc">Acabamento impecável com passadoria profissional a vapor. Entregamos em
+                cabides.</p>
+              <span class="service-card-price">A partir de R$3,00/peça</span>
+            </div>
+          </div>
+          <div class="service-card slide-left delay-3">
+            <div class="service-card-thumb">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1723402289760-5dbb9997795d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Cama e Banho" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md)">
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Cama e Banho</h3>
+              <p class="service-card-desc">Lençóis, fronhas, toalhas e edredons. Higienização profunda e amaciamento.
+              </p>
+              <span class="service-card-price">A partir de R$6,00/peça</span>
+            </div>
+          </div>
+          <div class="service-card slide-right delay-4">
+            <div class="service-card-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1771039621838-4c8dd6ae0f9d?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Peças Especiais" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md)">
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Peças Especiais</h3>
+              <p class="service-card-desc">Cobertores, edredons, e cortinas com higienização especializada.</p>
+              <span class="service-card-price">Cobertores e edredons a partir de R$20,00</span>
+              <span class="service-card-price">Cortinas a partir de R$8,00/mt linear</span>
+            </div>
+          </div>
+          <div class="service-card slide-right delay-5">
+            <div class="service-card-thumb">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1723708939507-b7e4bc869786?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Empresarial" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md)">
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Empresarial</h3>
+              <p class="service-card-desc">Atendimento para hotéis, clínicas e empresas com volume e condições
+                especiais.</p>
+              <span class="service-card-price">Planos personalizados</span>
+            </div>
+          </div>
+          <div class="service-card slide-right delay-5">
+            <div class="service-card-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1762758889413-64d717f81b0d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Tapetes" style="width:100%; height:100%; object-fit:cover; border-radius:var(--radius-md)  ">
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">Tapetes</h3>
+              <p class="service-card-desc">Tapetes e passadeiras com higienização especializada para renovar seus
+                ambientes.</p>
+              <span class="service-card-price">A partir de R$12,00/mt²</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CALCULADORA DE PREÇOS
+    ============================================================ -->
+    <section class="section section--alt calculator" id="calculadora" aria-label="Calculadora de preços">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Transparência total</span>
+          <h2 class="section-title">Calcule o valor <span>do seu pedido</span></h2>
+          <h3 class="section-subtitle">Selecione as peças e veja o total em tempo real.</h3>
+          <small class="section-note">* Os preços podem variar conforme o tamanho e a qualidade dos materiais.<br>*
+            Favor confirmar o valor no balcão</small>
+        </div>
+
+        <div class="calc-layout">
+          <!-- Tabela de itens -->
+          <div class="calc-table-wrap">
+            <table class="calc-table" aria-label="Tabela de preços">
+              <thead>
+                <tr>
+                  <th>Peça / Item</th>
+                  <th>Preço unitário</th>
+                  <th>Quantidade</th>
+                </tr>
+              </thead>
+              <tbody id="calcTableBody">
+                <!-- Preenchido via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Resumo -->
+          <div class="calc-summary" aria-live="polite">
+            <h3>Resumo do pedido</h3>
+            <div class="calc-items-list" id="calcItemsList">
+              <div class="calc-empty" id="calcEmpty">
+                <div class="icon">🧺</div>
+                <p>Adicione peças para<br>calcular o total</p>
+              </div>
+            </div>
+            <hr class="calc-divider">
+            <div class="calc-total-row">
+              <div>
+                <div class="calc-total-label">Total estimado</div>
+                <p class="calc-note">Frete e descontos de plano<br>aplicados na finalização</p>
+                <small class="calc-note">* Os preços podem variar conforme o tamanho e a qualidade dos
+                  materiais.<br>*
+                  Favor confirmar o valor no balcão</small>
+              </div>
+              <div class="calc-total-value" id="calcTotal">R$0</div>
+            </div>
+            <button class="calc-cta" id="calcCta"
+              onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+              Solicitar este pedido →
+            </button>
+            <span class="calc-reset" id="calcReset" onclick="resetCalc()">Limpar seleção</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PLANOS / MENSALIDADES
+    ============================================================ -->
+    <section class="section" id="planos" aria-label="Planos e mensalidades">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="badge">Economia todo mês</span>
+          <h2 class="section-title">Planos para <span>todos os perfis</span></h2>
+          <p class="section-subtitle">Assine um plano e economize até 30% em relação ao avulso. Cancele quando quiser.
+          </p>
+        </div>
+        <div class="plans-grid">
+
+          <!-- PLANO SINGLE -->
+          <div class="plan-card">
+            <div class="plan-name">Plano Single</div>
+            <div class="plan-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-amount">150</span>
+            </div>
+            <div class="plan-period">/mês</div>
+            <p class="plan-desc">Ideal para solteiros ou estudantes que querem praticidade no cotidiano.</p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 1 pessoa</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Lavagem + secagem</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 1 coleta + 1 entrega/semana</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Prazo padrão (3 dias úteis)</li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Passadoria
+                incluída</li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Serviço expresso
+              </li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Peças especiais
+              </li>
+            </ul>
+            <button class="plan-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+              Assinar Single
+            </button>
+          </div>
+
+          <!-- PLANO DUPLO -->
+          <div class="plan-card">
+            <div class="plan-name">Plano Duplo</div>
+            <div class="plan-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-amount">260</span>
+            </div>
+            <div class="plan-period">/mês</div>
+            <p class="plan-desc">Ideal para casais que ou colegas de quarto que têm uma rotina agitada.</p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 2 pessoas</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Lavagem + secagem</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 1 coleta + 1 entrega/semana</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Prazo padrão (3 dias úteis)</li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Passadoria
+                incluída</li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Serviço expresso
+              </li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Peças especiais
+              </li>
+            </ul>
+            <button class="plan-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+              Assinar Duplo
+            </button>
+          </div>
+
+          <!-- PLANO FAMÍLIA (popular) -->
+          <div class="plan-card plan-card--popular">
+            <div class="plan-badge">⭐ Mais popular</div>
+            <div class="plan-name">Plano Família</div>
+            <div class="plan-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-amount">380</span>
+            </div>
+            <div class="plan-period">/mês</div>
+            <p class="plan-desc">Perfeito para pequenas famílias. Volume maior, passadoria incluída e coletas semanais.
+            </p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 3 pessoas</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Lavagem + secagem</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 4 coletas + 4 entregas/mês</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Prazo padrão (3 dias úteis)</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Passadoria incluída</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 2 peças especiais/mês</li>
+              <li class="plan-feature plan-feature--disabled"><span class="plan-feature-icon">✗</span> Serviço expresso
+              </li>
+            </ul>
+            <button class="plan-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+              Assinar Família
+            </button>
+          </div>
+
+          <!-- PLANO PREMIUM -->
+          <div class="plan-card">
+            <div class="plan-name">Plano Premium</div>
+            <div class="plan-price">
+              <span class="plan-currency">R$</span>
+              <span class="plan-amount">480</span>
+            </div>
+            <div class="plan-period">/mês</div>
+            <p class="plan-desc">Para grandes famílias que querem conforto e tempo de qualidade juntos sem se preocupar
+              com as roupas sujas.
+            </p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> 4 pessoas</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Lavagem + secagem</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Coletas ilimitadas</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Passadoria incluída</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Serviço expresso incluso</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Peças especiais ilimitadas</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Atendimento prioritário</li>
+            </ul>
+            <button class="plan-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+              Assinar Premium
+            </button>
+          </div>
+
+          <!-- PLANO CUSTOM -->
+          <div class="plan-card">
+            <div class="plan-name">Plano Custom</div>
+            <div class="plan-price">
+              <span class="plan-amount">Sob consulta</span>
+            </div>
+            <p class="plan-desc">Assine um plano personalizado para atender às necessidades específicas da sua família
+              ou empresa. Entre em
+              contato para criar o plano ideal para você.
+            </p>
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Mais de 400 peças/mes</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Lavagem + secagem</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Coletas ilimitadas</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Passadoria incluída</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Serviço expresso incluso</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Uniformes da sua empresa</li>
+              <li class="plan-feature"><span class="plan-feature-icon">✔</span> Atendimento prioritário</li>
+            </ul>
+            <button class="plan-cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">
+              Assinar Custom
+            </button>
+          </div>
+        </div>
+
+        <!-- Nota de garantia -->
+        <p style="text-align:center; margin-top:40px; font-size:14px; color:var(--gray-400)">
+          🔒 Cancelamento após 6 meses sem multa · ✉️ Boleto ou cartão de crédito · 🎁 Coleta e entrega grátis.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PARALLAX 2 — entre Planos e Depoimentos
+    ============================================================ -->
+    <div class="parallax-banner parallax-banner--ironing" aria-hidden="false">
+      <div class="parallax-bg" id="parallax2"></div>
+      <div class="parallax-content">
+        <span class="eyebrow">✦ Mais de 5.000 famílias satisfeitas</span>
+        <h2>Entregamos mais do que<br>roupas limpas — entregamos <span>tranquilidade</span></h2>
+        <p>Coleta em domicílio, prazo garantido e qualidade que você vê. Experimente agora com 20% de desconto no
+          primeiro pedido.</p>
+        <div class="parallax-actions">
+          <a href="#contato" class="btn btn--primary">Solicitar orçamento grátis</a>
+          <a href="sobre.html" class="btn btn--white">Conheça nossa história</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         DEPOIMENTOS
+    ============================================================ -->
+    <section class="section section--alt" id="depoimentos" aria-label="Depoimentos">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="badge">O que dizem sobre nós</span>
+          <h2 class="section-title">Clientes que <span>confiam</span> em nós</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Serviço impecável! Minhas roupas voltaram com uma qualidade incrível. O prazo
+              foi respeitado e a entrega foi feita com cuidado. Recomendo demais!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MA</div>
+              <div>
+                <div class="testimonial-name">Maria Aparecida</div>
+                <div class="testimonial-role">Plano Família · Cliente há 2 anos</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Uso o plano Premium e não consigo mais imaginar a vida sem. Coleta na terça,
+              entrega na quinta. Tudo perfeito, passadoria impecável. Vale cada centavo."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RS</div>
+              <div>
+                <div class="testimonial-name">Ricardo Santos</div>
+                <div class="testimonial-role">Plano Premium · Cliente há 3 anos</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Precisei de serviço expresso às 18h e me atenderam! O terno chegou impecável
+              para o evento no dia seguinte. Equipe super atenciosa e comprometida."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">CF</div>
+              <div>
+                <div class="testimonial-name">Carla Ferreira</div>
+                <div class="testimonial-role">Serviço avulso · Cliente há 1 ano</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA BANNER
+    ============================================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Pronto para ter suas roupas impecáveis?</h2>
+          <p>Faça sem primeiro pedido. Sem necessidade de cartão para começar.</p>
+          <div class="cta-banner-actions">
+            <a href="#contato" class="btn btn--white">Solicitar orçamento grátis</a>
+            <a href="#calculadora" class="btn btn--yellow">Calcular meu pedido</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTATO / FORMULÁRIO
+    ============================================================ -->
+    <section class="section section--alt" id="contato" aria-label="Contato">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Fale conosco</span>
+          <h2 class="section-title">Entre em <span>contato</span></h2>
+          <p class="section-subtitle">Tire dúvidas, solicite orçamento ou assine um plano. Retornamos em até 2 horas.
+          </p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h3>Atendimento</h3>
+            <p>Estamos prontos para atender você da melhor forma. Entre em contato pelo canal de sua preferência.</p>
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-item-icon">📞</div>
+                <div>
+                  <div class="contact-item-label">Telefone</div>
+                  <div class="contact-item-value">(35) 9 9702-4901</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">💬</div>
+                <div>
+                  <div class="contact-item-label">WhatsApp</div>
+                  <div class="contact-item-value">(35) 9 9 9702-4901</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">✉️</div>
+                <div>
+                  <div class="contact-item-label">E-mail</div>
+                  <div class="contact-item-value">contato@lavanderia5estrelas.com.br</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">📍</div>
+                <div>
+                  <div class="contact-item-label">Endereço</div>
+                  <div class="contact-item-value">Rua das Flores, 123 — Belo Horizonte, MG</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon">🕐</div>
+                <div>
+                  <div class="contact-item-label">Horário</div>
+                  <div class="contact-item-value">Seg–Sex: 8h–18h · Sáb: 8h–13h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div id="formContent">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="nome">Nome completo</label>
+                  <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">E-mail</label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+                  <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(35) 9 0000-0000" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="servico">Tipo de serviço</label>
+                  <select class="form-select" id="servico" name="servico">
+                    <option value="">Selecione...</option>
+                    <option>Lavagem a seco</option>
+                    <option>Passadoria</option>
+                    <option>Plano mensal</option>
+                    <option>Atendimento empresarial</option>
+                  </select>
+                </div>
+                <div class="form-group form-group--full">
+                  <label class="form-label" for="mensagem">Mensagem</label>
+                  <textarea class="form-textarea" id="mensagem" name="mensagem"
+                    placeholder="Descreva seu pedido, dúvida ou solicitação..."></textarea>
+                </div>
+              </div>
+              <button class="form-submit" onclick="submitForm(event)">
+                Enviar mensagem ✉️
+              </button>
+            </div>
+            <div class="form-success" id="formSuccess">
+              <div class="icon">✅</div>
+              <h4>Mensagem enviada!</h4>
+              <p>Recebemos seu contato e retornaremos em até 2 horas durante o horário comercial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <!-- 
+            ★ LOGO NO FOOTER — substitua igual ao header
+          -->
+          <div class="footer-logo">
+            <div class="logo-img" aria-hidden="true">🌟</div>
+            <div class="logo-text">
+              <span class="logo-name">Lavanderia 5 Estrelas</span>
+              <span class="logo-tagline">Qualidade superior</span>
+            </div>
+          </div>
+          <p class="footer-about">Cuidado profissional com suas roupas desde 2015. Lavagem, secagem, passadoria e planos
+            mensais para sua praticidade em Belo Horizonte.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Instagram">📸</a>
+            <a href="#" class="footer-social" aria-label="Facebook">📘</a>
+            <a href="#" class="footer-social" aria-label="WhatsApp">💬</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#calculadora">Calcule o Preço</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="blog/blog-index.html">Blog</a></li>
+            <li><a href="sobre.html">Sobre nós</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Serviços</h4>
+          <ul class="footer-links">
+            <li><a href="#servicos">Lavagem Convencional</a></li>
+            <li><a href="#servicos">Passadoria</a></li>
+            <li><a href="#servicos">Cama e Banho</a></li>
+            <li><a href="#servicos">Peças Especiais</a></li>
+            <li><a href="#servicos">Empresarial</a></li>
+            <li><a href="#servicos">Tapeçaria</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contato</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📞</span>
+            <div class="footer-contact-text">(35) 9 9970 24901</div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">💬</span>
+            <div class="footer-contact-text">(35) 9 997024901</div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">✉️</span>
+            <div class="footer-contact-text">paulodeavila13@gmail.com</div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📍</span>
+            <div class="footer-contact-text">Rua Alfenas, 837<br>Areado — MG</div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">🕐</span>
+            <div class="footer-contact-text">Seg–Sex: 7h–18h</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>©
+          <script>
+            document.write(new Date().getFullYear())
+          </script> Lavanderia 5 Estrelas. Todos os direitos reservados.
+        </span>
+        <a href="https://www.instagram.com/aspixelweb?igsh=MTJxMnZheGY1aThtbw==" target="_blank">
+          <p>
+            Desenvolvido por ASPIXEL Web Technology.
+          </p>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a href="https://wa.me/5535997024901" class="whatsapp-float" aria-label="Falar no WhatsApp" target="_blank"
+    rel="noopener">
+    💬
+  </a>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+
+    const PRICE_TABLE = [
+      // ── Roupas do dia a dia ─────────────────────────────────
+      { category: "Roupas do dia a dia", name: "Camiseta", price: 3.00 },
+      { category: "Roupas do dia a dia", name: "Calça jeans", price: 5.00 },
+      { category: "Roupas do dia a dia", name: "Calça social", price: 15.00 },
+      { category: "Roupas do dia a dia", name: "Short / Bermuda", price: 3.00 },
+      { category: "Roupas do dia a dia", name: "Vestido simples", price: 15.00 },
+      { category: "Roupas do dia a dia", name: "Saia", price: 10.00 },
+      { category: "Roupas do dia a dia", name: "Meia (par)", price: 3.00 },
+      { category: "Roupas do dia a dia", name: "Cueca / Calcinha", price: 3.00 },
+      { category: "Roupas do dia a dia", name: "Sutiã", price: 3.00 },
+      { category: "Roupas do dia a dia", name: "Tenis (par)", price: 12.00 },
+      // ── Roupas sociais / especiais ──────────────────────────
+      { category: "Roupas sociais", name: "Camisa social", price: 10.00 },
+      { category: "Roupas sociais", name: "Blazer / Paletó", price: 15.00 },
+      { category: "Roupas sociais", name: "Terno (calça + paletó)", price: 30.00 },
+      { category: "Roupas sociais", name: "Vestido longo / Festa", price: 30.00 },
+      { category: "Roupas sociais", name: "Gravata", price: 5.00 },
+      // ── Cama e banho ────────────────────────────────────────
+      { category: "Cama e Banho", name: "Lençol solteiro", price: 6.00 },
+      { category: "Cama e Banho", name: "Lençol casal / queen", price: 10.00 },
+      { category: "Cama e Banho", name: "Fronha", price: 3.00 },
+      { category: "Cama e Banho", name: "Toalha de banho", price: 5.00 },
+      { category: "Cama e Banho", name: "Toalha de rosto", price: 3.00 },
+      { category: "Cama e Banho", name: "Roupão", price: 20.00 },
+      // ── Peças especiais ─────────────────────────────────────
+      { category: "Peças Especiais", name: "Cobertor solteiro", price: 30.00 },
+      { category: "Peças Especiais", name: "Cobertor casal", price: 40.00 },
+      { category: "Peças Especiais", name: "Edredom solteiro", price: 30.00 },
+      { category: "Peças Especiais", name: "Edredom casal", price: 40.00 },
+      { category: "Peças Especiais", name: "Cortina (por metro linear)", price: 8.00 },
+      { category: "Peças Especiais", name: "Tapete (por metro quadrado)", price: 10.00 },
+
+    ];
+
+    /* ── Estado da calculadora ─────────────────────────────── */
+    const quantities = {};
+
+    /* ── Renderiza a tabela ────────────────────────────────── */
+    function renderTable() {
+      const tbody = document.getElementById('calcTableBody');
+      let currentCategory = '';
+      let html = '';
+
+      PRICE_TABLE.forEach((item, idx) => {
+        if (item.category !== currentCategory) {
+          currentCategory = item.category;
+          html += `<tr style="background:var(--yellow)">
+            <td colspan="3" style="font-family:var(--font-display);font-weight:700;font-size:12px;
+              letter-spacing:.06em;text-transform:uppercase;color:var(--gray-600);padding:8px 20px">
+              ${item.category}
+            </td>
+          </tr>`;
+        }
+        const qty = quantities[idx] || 0;
+        html += `
+          <tr>
+            <td>
+              <span class="item-name">${item.name}</span>
+            </td>
+            <td><span class="item-price">R$${item.price.toFixed(2).replace('.', ',')}</span></td>
+            <td>
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(${idx}, -1)" aria-label="Diminuir ${item.name}">−</button>
+                <span class="qty-value" id="qty-${idx}">${qty}</span>
+                <button class="qty-btn" onclick="changeQty(${idx}, 1)" aria-label="Aumentar ${item.name}">+</button>
+              </div>
+            </td>
+          </tr>`;
+      });
+
+      tbody.innerHTML = html;
+    }
+
+    /* ── Altera quantidade ─────────────────────────────────── */
+    function changeQty(idx, delta) {
+      quantities[idx] = Math.max(0, (quantities[idx] || 0) + delta);
+      document.getElementById(`qty-${idx}`).textContent = quantities[idx];
+      updateSummary();
+    }
+
+    /* ── Atualiza resumo lateral ───────────────────────────── */
+    function updateSummary() {
+      let total = 0;
+      let itemsHtml = '';
+      let hasItems = false;
+
+      PRICE_TABLE.forEach((item, idx) => {
+        const qty = quantities[idx] || 0;
+        if (qty > 0) {
+          hasItems = true;
+          const subtotal = qty * item.price;
+          total += subtotal;
+          itemsHtml += `
+            <div class="calc-item-row">
+              <span class="calc-item-name">${item.name} × ${qty}</span>
+              <span class="calc-item-val">R$${subtotal.toFixed(2).replace('.', ',')}</span>
+            </div>`;
+        }
+      });
+
+      const listEl = document.getElementById('calcItemsList');
+      const emptyEl = document.getElementById('calcEmpty');
+
+      if (hasItems) {
+        listEl.innerHTML = itemsHtml;
+      } else {
+        listEl.innerHTML = `
+          <div class="calc-empty" id="calcEmpty">
+            <div class="icon">🧺</div>
+            <p>Adicione peças para<br>calcular o total</p>
+          </div>`;
+      }
+
+      document.getElementById('calcTotal').textContent =
+        `R$${total.toFixed(2).replace('.', ',')}`;
+    }
+
+    /* ── Reseta calculadora ────────────────────────────────── */
+    function resetCalc() {
+      Object.keys(quantities).forEach(k => { quantities[k] = 0; });
+      renderTable();
+      updateSummary();
+    }
+
+    /* ── Formulário de contato ─────────────────────────────── */
+    function submitForm(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!nome || !email) {
+        alert('Por favor, preencha nome e e-mail.');
+        return;
+      }
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+
+    /* ── Header scroll ─────────────────────────────────────── */
+    // Variável para controle de performance
+    let ticking = false;
+
+    const updateScrollEffects = () => {
+      const sy = window.scrollY;
+
+      // 1. Controle do Header
+      const header = document.getElementById('header');
+      if (header) {
+        header.classList.toggle('scrolled', sy > 20);
+      }
+
+      // 2. Lógica de Parallax Suave
+      const parallaxElements = [
+        { el: document.getElementById('parallax1'), speed: 0.28 },
+        { el: document.getElementById('parallax2'), speed: 0.28 }
+      ];
+
+      parallaxElements.forEach(({ el, speed }) => {
+        if (el) {
+          const parent = el.parentElement;
+          const rect = parent.getBoundingClientRect();
+
+          // Verifica se o elemento está visível na tela para poupar processamento
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            // Cálculo matemático para o deslocamento:
+            // O offset é baseado na distância relativa do centro do elemento ao centro da tela
+            const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+
+            // Usamos template literals para aplicar o transform
+            el.style.transform = `translate3d(0, ${offset}px, 0)`;
+          }
+        }
+      });
+
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollEffects);
+        ticking = true;
+      }
+    }, { passive: true }); // 'passive' melhora a performance de rolagem em dispositivos móveis
+
+    /* ── Slide-in observer (serviços) ──────────────────────── */
+    const slideEls = document.querySelectorAll('.slide-left, .slide-right');
+    const slideObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          slideObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    slideEls.forEach(el => slideObserver.observe(el));
+
+    /* ── Menu hamburger ────────────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    /* ── Init ──────────────────────────────────────────────── */
+    renderTable();
+    updateSummary();
+  </script>
+
+</body>
+
+</html>
