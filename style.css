@@ -528,7 +528,7 @@ button {
 }
 
 .hero-image-wrap {
-    border-radius: var(--radius-lg);
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -546,7 +546,7 @@ button {
     font-weight: 600;
 }
 
-.hero-image-placeholder img {
+.hero-image-wrap img {
     width: 100%;
     margin: 0;
     object-fit: fill;
@@ -1855,7 +1855,7 @@ button {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
     .nav-links,
     .nav-cta {
