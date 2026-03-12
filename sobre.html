@@ -777,9 +777,12 @@
 
     /* ── EQUIPE ──────────────────────────────────────────── */
     .team-grid {
+      align-self: center;
+      justify-self: center;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      width: 100%;
     }
 
     .team-card {
@@ -801,7 +804,24 @@
     }
 
     .team-card-photo {
-      aspect-ratio: 3/4;
+      max-height: 350px;
+      display: flex;
+      align-items: top;
+      justify-content: start;
+      font-size: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+    }
+
+
+    .team-card-photo-funcionario {
       max-height: 240px;
       display: flex;
       align-items: center;
@@ -809,7 +829,20 @@
       font-size: 64px;
       position: relative;
       overflow: hidden;
-      /* ★ Substitua o fundo por <img src="assets/img/foto-membro.webp" ...> */
+    }
+
+    .item-card-photo-funcionario img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 40% 50%;
+      align-self: center;
+      justify-self: center;
+      background-color: #00B5E2;
+    }
+
+    .team-card-photo-ceo {
+      border: 4px solid var(--yellow);
     }
 
     .team-card:nth-child(1) .team-card-photo {
@@ -1428,13 +1461,13 @@
 
           <div class="page-hero-visual" aria-hidden="true">
             <div class="page-hero-mosaic">
-              <!-- ★ Substitua cada .mosaic-cell por uma foto real -->
-              <div class="mosaic-cell" title="Foto: ambiente interno">🏪</div>
+              <div class="mosaic-cell" title="Foto: ambiente interno">
+                <img src="assets/lavanderia.jpg" alt="Ambiente interno da lavanderia"
+                  style="width:100%;height:100%;object-fit:cover">
+              </div>
               <div class="mosaic-cell" title="Foto: equipe">
-                <div class="mosaic-stat">
-                  <div class="mosaic-stat-val">10+</div>
-                  <div class="mosaic-stat-lbl">anos de experiência</div>
-                </div>
+                <img src="assets/img/roupas.jpeg" alt="roupas lavadas" style="width:100%;height:100%;object-fit:cover"
+                  style="width: 100%; height: auto;object-fit: cover;">
               </div>
               <div class="mosaic-cell" title="Foto: processo de lavagem">🧺</div>
               <div class="mosaic-cell" title="Foto: entrega">🚚</div>
@@ -1586,68 +1619,51 @@
         <div class="team-grid">
 
           <div class="team-card reveal">
-            <div class="team-card-photo">
-              👨‍💼
-              <!-- ★ Substitua por: <img src="assets/img/carlos.webp" alt="Carlos Silva"> -->
+            <div class="item-card-photo-funcionario">
+              <img src="assets/img/roseli.enc" alt="Roseli gomes">
               <div class="team-card-overlay">
-                <p>"Fundamos a 5 Estrelas com o sonho de mostrar que lavanderia pode ser sinônimo de qualidade e
-                  confiança."</p>
+                <p>"Meu papel é garantir a continuidade das operações e garantir que cada serviço seja finalizado com um
+                  sorriso no rosto de cada cliente."</p>
               </div>
             </div>
             <div class="team-card-body">
-              <div class="team-card-name">Carlos Silva</div>
-              <div class="team-card-role">Co-fundador & Diretor</div>
-              <div class="team-card-since">🏆 Na empresa desde 2015</div>
+              <div class="team-card-name">Roseli Gomes</div>
+              <div class="team-card-role">Co-Diretora</div>
+              <div class="team-card-since">⭐ desde 2021</div>
             </div>
           </div>
 
-          <div class="team-card reveal reveal-delay-1">
-            <div class="team-card-photo">
-              👩‍💼
-              <!-- ★ Substitua por: <img src="assets/img/ana.webp" alt="Ana Silva"> -->
+          <div class="team-card reveal team-card-photo-ceo">
+            <div class="team-card-photo ">
+              <img src="assets/img/paulo.jpg" alt="Paulo Roberto">
               <div class="team-card-overlay">
-                <p>"Cada cliente que entra pela nossa porta sai com a certeza de que cuidamos das roupas como se fossem
-                  nossas."</p>
+                <p>"Fundei a 5 Estrelas em 2018 com apenas uma maquina e o sonho de trazer para Areado a inovação e
+                  cuidado com roupas que jamais foram vistos."</p>
               </div>
             </div>
             <div class="team-card-body">
-              <div class="team-card-name">Ana Silva</div>
-              <div class="team-card-role">Co-fundadora & Qualidade</div>
-              <div class="team-card-since">🏆 Na empresa desde 2015</div>
+              <div class="team-card-name">Paulo Roberto</div>
+              <div class="team-card-role">Fundador e Diretor</div>
+              <div class="team-card-since">🏆 desde 2018</div>
             </div>
           </div>
 
           <div class="team-card reveal reveal-delay-2">
-            <div class="team-card-photo">
-              👨‍🔧
-              <!-- ★ Substitua por: <img src="assets/img/marcos.webp" alt="Marcos Oliveira"> -->
+            <div class="item-card-photo-funcionario">
+              <img src="assets/img/sandra.enc" alt="Sandra Mara">
               <div class="team-card-overlay">
-                <p>"Minha missão é garantir que cada máquina funcione no pico para entregarmos o melhor resultado
-                  sempre."</p>
+                <p>"Minha missão é deixar cada roupa bem dobrada e passada, pensando sempre no bem estar de cada cliente
+                  e
+                  família."</p>
               </div>
             </div>
             <div class="team-card-body">
-              <div class="team-card-name">Marcos Oliveira</div>
-              <div class="team-card-role">Gerente de Operações</div>
-              <div class="team-card-since">⭐ Na empresa desde 2017</div>
+              <div class="team-card-name">Sandra Mara</div>
+              <div class="team-card-role">Auxiliar de serviço</div>
+              <div class="team-card-since">⭐ desde 2025</div>
             </div>
           </div>
 
-          <div class="team-card reveal reveal-delay-3">
-            <div class="team-card-photo">
-              👩‍🎨
-              <!-- ★ Substitua por: <img src="assets/img/julia.webp" alt="Júlia Mendes"> -->
-              <div class="team-card-overlay">
-                <p>"Cuido para que cada cliente tenha a melhor experiência, do primeiro contato à entrega da última
-                  peça."</p>
-              </div>
-            </div>
-            <div class="team-card-body">
-              <div class="team-card-name">Júlia Mendes</div>
-              <div class="team-card-role">Atendimento & Experiência</div>
-              <div class="team-card-since">⭐ Na empresa desde 2020</div>
-            </div>
-          </div>
 
         </div>
       </div>
