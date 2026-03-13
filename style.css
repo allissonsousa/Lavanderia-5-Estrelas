@@ -525,6 +525,10 @@ button {
 .hero-visual {
     position: relative;
     animation: fadeRight .8s .2s ease both;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-height: 100%;
 }
 
 .hero-image-wrap {
@@ -534,8 +538,10 @@ button {
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow-lg);
+    object-fit: cover;
     position: relative;
-    height: auto;
+    height: 700px;
+    width: 100%;
 }
 
 
@@ -547,11 +553,10 @@ button {
 }
 
 .hero-image-wrap img {
-    width: 100%;
-    margin: 0;
-    object-fit: fill;
-    height: auto;
-    overflow: hidden;
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+
 }
 
 /* floating badge */
