@@ -203,23 +203,30 @@
       right: 0;
       z-index: 1000;
       height: var(--nav-h);
-      background: rgba(255, 255, 255, .93);
+      background: rgba(255, 255, 255, .92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--gray-200);
       transition: box-shadow .3s;
+
+
     }
 
-    .header.scrolled {
-      box-shadow: var(--shadow-md);
+    .header .container {
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
+
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 100%;
+      height: 100px;
+      padding: 0px 20px;
     }
 
+    /* ── LOGO ── */
     .logo {
       display: flex;
       align-items: center;
@@ -386,10 +393,11 @@
     .hero-grid-bg {
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(0, 181, 226, .06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 181, 226, .06) 1px, transparent 1px);
-      background-size: 48px 48px;
+      background: url(https://images.unsplash.com/photo-1504177847824-d075f5706770?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     .page-hero-inner {
@@ -399,7 +407,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
-      padding: 100px 0;
+      padding: 20px 0;
     }
 
     .page-hero-label {
@@ -535,6 +543,7 @@
       box-shadow: var(--shadow-md);
     }
 
+
     .mvv-card {
       padding: 48px 36px;
       position: relative;
@@ -542,38 +551,46 @@
     }
 
     .mvv-card:nth-child(1) {
-      background: var(--blue);
+      background-color: var(--blue-deeper);
+      background-image: url(assets/icons/alvo.png);
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
       color: var(--white);
     }
 
     .mvv-card:nth-child(2) {
       background: var(--gray-800);
+      background-image: url(assets/icons/escudo.png);
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
       color: var(--white);
     }
 
     .mvv-card:nth-child(3) {
-      background: var(--yellow);
-      color: var(--black);
+      background: var(--blue-deeper);
+      background-image: url(assets/icons/sabonete.png);
+      background-size: 80%;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: var(--white);
     }
 
-    .mvv-card::before {
-      content: attr(data-emoji);
-      position: absolute;
-      bottom: -10px;
-      right: 12px;
-      font-size: 80px;
-      opacity: .12;
-      pointer-events: none;
-    }
+
 
     .mvv-label {
       font-family: var(--font-display);
-      font-size: 11px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
       opacity: .65;
       margin-bottom: 16px;
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
     }
 
     .mvv-title {
@@ -582,12 +599,18 @@
       font-weight: 800;
       margin-bottom: 16px;
       line-height: 1.2;
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      border-radius: 10px;
     }
 
     .mvv-text {
       font-size: 15px;
       line-height: 1.75;
       opacity: .85;
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      border-radius: 10px;
     }
 
     /* ── HISTÓRIA / TIMELINE ─────────────────────────────── */
@@ -684,6 +707,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       font-size: 72px;
       box-shadow: var(--shadow-lg);
       /* ★ Substitua por: <img src="assets/img/loja.webp" alt="Nossa loja"> */
@@ -743,13 +767,13 @@
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
+      gap: 20px;
       text-align: center;
       position: relative;
     }
 
     .stat-item {
-      padding: 0 20px;
+      padding: 0 10px;
     }
 
     .stat-item+.stat-item {
@@ -758,8 +782,8 @@
 
     .stat-value {
       font-family: var(--font-display);
-      font-size: clamp(36px, 4vw, 52px);
-      font-weight: 800;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600;
       color: var(--white);
       line-height: 1;
       margin-bottom: 8px;
@@ -1368,7 +1392,11 @@
       }
 
       .team-grid {
-        grid-template-columns: 1fr 1fr;
+
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+        width: 100%;
+
       }
 
       .values-grid {
@@ -1394,11 +1422,10 @@
   <header class="header" id="header">
     <div class="container">
       <nav class="nav">
-        <!-- ★ LOGO — substitua .logo-img por <img src="assets/img/logo.svg" ...> -->
+
         <a href="/" class="logo" aria-label="Lavanderia 5 Estrelas — Início">
-          <div class="logo-img" aria-hidden="true">🌟</div>
+          <img src="assets/img/logo.jpeg" alt="Lavanderia 5 Estrelas" style="height:44px; padding-bottom: 10px;">
           <div class="logo-text">
-            <span class="logo-name">Lavanderia 5 Estrelas</span>
             <span class="logo-tagline">Qualidade superior</span>
           </div>
         </a>
@@ -1427,12 +1454,11 @@
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html#servicos">Serviços</a>
-      <a href="index.html#calculadora">Calcule o Preço</a>
       <a href="index.html#planos">Planos</a>
-      <a href="sobre.html">Sobre</a>
+      <a href="sobre.html">Sobre nós</a>
       <a href="blog/index.html">Blog</a>
       <a href="contato.html">Contato</a>
-      <a href="contato.html" class="btn btn--primary" style="text-align:center">Orçamento grátis</a>
+      <a href="index.html#calculadora">Orçamento grátis</a>
     </div>
   </header>
 
@@ -1446,11 +1472,12 @@
           <div>
             <span class="page-hero-label">✦ Nossa história</span>
             <h1 class="page-hero-title">
-              Mais de uma década<br>cuidando do que<br><em>você veste</em>
+              Mais de 8 anos<br>cuidando do que<br><em>você veste</em>
             </h1>
             <p class="page-hero-desc">
-              Nascemos de uma paixão por organização e qualidade. Hoje somos referência em lavanderia em Belo Horizonte,
-              com uma equipe dedicada e tecnologia de ponta.
+              Nascemos de uma paixão por organização e qualidade. Hoje somos referência em lavanderia em Areado e
+              região,
+              com uma equipe dedicada e produtos de ponta.
             </p>
             <div class="page-hero-actions">
               <a href="#historia" class="btn btn--primary">Conheça nossa história</a>
@@ -1486,19 +1513,19 @@
           <p class="section-subtitle">Os princípios que guiam cada peça que lavamos e cada cliente que atendemos.</p>
         </div>
         <div class="mvv-grid reveal">
-          <div class="mvv-card" data-emoji="🎯">
+          <div class="mvv-card">
             <div class="mvv-label">Missão</div>
             <div class="mvv-title">Cuidar com propósito</div>
             <p class="mvv-text">Oferecer serviços de lavanderia de altíssima qualidade, com respeito ao tempo e às
               roupas dos nossos clientes, tornando o dia a dia mais prático e agradável.</p>
           </div>
-          <div class="mvv-card" data-emoji="🌟">
+          <div class="mvv-card">
             <div class="mvv-label">Visão</div>
             <div class="mvv-title">Ser referência no cuidado</div>
-            <p class="mvv-text">Ser reconhecida como a lavanderia mais confiável de Belo Horizonte até 2030, expandindo
-              para 5 unidades e transformando o setor com inovação e sustentabilidade.</p>
+            <p class="mvv-text">Permanecer sendo a Lavanderia referência da regiâo, expandindo
+              para 3 unidades e transformando o setor com inovação e sustentabilidade.</p>
           </div>
-          <div class="mvv-card" data-emoji="💛">
+          <div class="mvv-card">
             <div class="mvv-label">Valores</div>
             <div class="mvv-title">O que nos move</div>
             <p class="mvv-text">Qualidade sem concessões · Honestidade em cada centavo cobrado · Respeito pelas pessoas
@@ -1517,8 +1544,8 @@
             <div class="stat-label">Clientes satisfeitos</div>
           </div>
           <div class="stat-item reveal reveal-delay-1">
-            <div class="stat-value" data-target="10">0<span> anos</span></div>
-            <div class="stat-label">De história em BH</div>
+            <div class="stat-value" data-target="8">0<span> anos</span></div>
+            <div class="stat-label">De história em Areado</div>
           </div>
           <div class="stat-item reveal reveal-delay-2">
             <div class="stat-value" data-target="98">0<span>%</span></div>
@@ -1546,11 +1573,13 @@
             </div>
             <div class="history-img-stack">
               <div class="history-img-main">
-                🏪
-                <!-- ★ Substitua por: <img src="assets/img/loja-fachada.webp" alt="Fachada da loja"> -->
+                <img src="assets/lavanderia.jpg" alt="foto da lavanderia"
+                  style="width: 100%; height:100%;object-fit: cover;">
               </div>
               <div class="history-img-float">
-                <strong>⭐ 4.9</strong>
+                <strong><img src="assets/icons/estrela (1).png" alt="estrela"
+                    style="width: 30px; height: 30px; display: inline-block;">
+                  4.9</strong>
                 <span>Avaliação média<br>Google</span>
               </div>
             </div>
@@ -1560,45 +1589,46 @@
             <div class="timeline" role="list">
               <div class="timeline-item reveal" role="listitem">
                 <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-year">2015 · Fundação</div>
+                <div class="timeline-year">2018 · Fundação</div>
                 <h3 class="timeline-title">O começo de tudo</h3>
-                <p class="timeline-text">Carlos e Ana Silva inauguraram a primeira unidade da Lavanderia 5 Estrelas no
-                  bairro Funcionários, com apenas 3 máquinas e muita vontade de fazer diferente.</p>
+                <p class="timeline-text">Paulo Roberto inaugurara a primeira unidade da Lavanderia 5 Estrelas no
+                  centro da cidade em um pequeno comodo de garagem, com apenas 1 máquina e muita vontade de fazer
+                  diferente.</p>
               </div>
               <div class="timeline-item reveal reveal-delay-1" role="listitem">
                 <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-year">2017 · Expansão</div>
+                <div class="timeline-year">2019 · Expansão</div>
                 <h3 class="timeline-title">Crescimento e reconhecimento</h3>
                 <p class="timeline-text">Com a demanda crescendo, ampliamos o espaço, dobramos a capacidade e
-                  conquistamos o prêmio "Melhor Lavanderia de BH" pela primeira vez.</p>
+                  conquistamos mais máquinas e melhores fornecedores.</p>
               </div>
               <div class="timeline-item reveal reveal-delay-2" role="listitem">
                 <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-year">2019 · Inovação</div>
+                <div class="timeline-year">2020 · Inovação</div>
                 <h3 class="timeline-title">Coleta e entrega em domicílio</h3>
                 <p class="timeline-text">Lançamos o serviço de coleta e entrega, revolucionando a experiência do
-                  cliente. Em 6 meses, 40% dos pedidos já eram feitos com esse modelo.</p>
+                  cliente. Em 6 meses, 70% dos pedidos já eram feitos com esse modelo.</p>
               </div>
               <div class="timeline-item reveal reveal-delay-1" role="listitem">
                 <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-year">2021 · Sustentabilidade</div>
-                <h3 class="timeline-title">Compromisso com o planeta</h3>
-                <p class="timeline-text">Migramos 100% para produtos biodegradáveis, instalamos painéis solares e
-                  reduzimos o consumo de água em 35% com novas tecnologias de lavagem.</p>
+                <div class="timeline-year">2022 · Crescimento</div>
+                <h3 class="timeline-title">Expansão de serviços</h3>
+                <p class="timeline-text">As demandas e o número de clientes não paravam de crescer. Expandimos para
+                  uma alocação maior e com mais variedades de serviços.</p>
               </div>
               <div class="timeline-item reveal reveal-delay-2" role="listitem">
                 <div class="timeline-dot" aria-hidden="true"></div>
                 <div class="timeline-year">2023 · Planos mensais</div>
                 <h3 class="timeline-title">Assinaturas e fidelidade</h3>
-                <p class="timeline-text">Lançamos os planos de assinatura mensal, que hoje respondem por 60% da receita.
-                  Mais de 800 famílias assinantes confiam em nós todo mês.</p>
+                <p class="timeline-text">Os planos de mensalidas já eram um sucesso desde o início da lavanderia, e
+                  mais clientes fiés passaram a aderir à esse serviço</p>
               </div>
               <div class="timeline-item reveal reveal-delay-1" role="listitem">
                 <div class="timeline-dot" aria-hidden="true"></div>
-                <div class="timeline-year">2025 · Hoje</div>
-                <h3 class="timeline-title">10 anos e muitos sonhos ainda</h3>
-                <p class="timeline-text">Celebramos 10 anos com mais de 5.000 clientes, 15 colaboradores e o objetivo de
-                  abrir a segunda unidade em 2026. A jornada continua.</p>
+                <div class="timeline-year">2026 · Hoje</div>
+                <h3 class="timeline-title">8 anos e muitos sonhos ainda</h3>
+                <p class="timeline-text">Celebramos 8 anos com mais de 5.000 clientes, 4 colaboradores e o objetivo de
+                  abrir a segunda unidade futuramente. A jornada continua...</p>
               </div>
             </div>
           </div>
@@ -1678,37 +1708,37 @@
         </div>
         <div class="values-grid">
           <div class="value-card reveal">
-            <span class="value-icon">🧴</span>
+            <img src="assets/icons/sabonete.png" alt="sabonete" style="height: 50px; width: 50px;">
             <div class="value-title">Produtos Sustentáveis</div>
-            <p class="value-text">Usamos apenas produtos biodegradáveis e hipoalergênicos, que cuidam das suas roupas e
+            <p class="value-text">Usamos produtos biodegradáveis e hipoalergênicos, que cuidam das suas roupas e
               do planeta ao mesmo tempo.</p>
           </div>
           <div class="value-card reveal reveal-delay-1">
-            <span class="value-icon">⏱️</span>
+            <img src="assets/icons/relogio-de-parede.png" alt="relogio" style="height: 50px; width: 50px;">
             <div class="value-title">Pontualidade</div>
             <p class="value-text">Prazo combinado é prazo cumprido. Nosso índice de entrega no prazo é de 99,2% — porque
               sabemos que você depende de nós.</p>
           </div>
           <div class="value-card reveal reveal-delay-2">
-            <span class="value-icon">🛡️</span>
+            <img src="assets/icons/escudo.png" alt="escudo" style="height: 50px; width: 50px;">
             <div class="value-title">Garantia Total</div>
             <p class="value-text">Se uma peça não ficar como esperado, refazemos o serviço sem custo. Sem discussão. Sua
               satisfação é inegociável.</p>
           </div>
           <div class="value-card reveal reveal-delay-1">
-            <span class="value-icon">🤝</span>
+            <img src="assets/icons/construcao-de-confianca.png" alt="trasnparencia" style="height: 50px; width: 50px;">
             <div class="value-title">Transparência</div>
             <p class="value-text">Preços claros, sem surpresas. O que você vê na calculadora é o que você paga. Sem
               taxas ocultas, nunca.</p>
           </div>
           <div class="value-card reveal reveal-delay-2">
-            <span class="value-icon">💧</span>
+            <img src="assets/icons/gotas-de-agua.png" alt="agua" style="height: 50px; width: 50px;">
             <div class="value-title">Responsabilidade Ambiental</div>
             <p class="value-text">Reduzimos o consumo de água em 35% com tecnologia moderna e reaproveitamos a água de
               enxágue no processo de pré-lavagem.</p>
           </div>
           <div class="value-card reveal reveal-delay-3">
-            <span class="value-icon">❤️</span>
+            <img src="assets/icons/cuidados-de-saude.png" alt="cuidado" style="height: 50px; width: 50px;">
             <div class="value-title">Atendimento Humanizado</div>
             <p class="value-text">Para nós, você não é um número. Cada cliente tem seu histórico, suas preferências e
               merece atenção personalizada sempre.</p>
@@ -1726,12 +1756,19 @@
           <p class="section-subtitle">Premiações e certificações que atestam nosso compromisso com a excelência.</p>
         </div>
         <div class="certs-row reveal">
-          <div class="cert-pill"><span>🏆</span> Melhor Lavanderia BH 2023</div>
-          <div class="cert-pill"><span>🌿</span> Empresa Sustentável SEBRAE</div>
-          <div class="cert-pill"><span>⭐</span> Nota 4.9 no Google (800+ avaliações)</div>
-          <div class="cert-pill"><span>✅</span> ISO 9001 — Gestão de Qualidade</div>
-          <div class="cert-pill"><span>💧</span> Certificado Uso Racional da Água</div>
-          <div class="cert-pill"><span>🤝</span> Procon — Empresa Confiável</div>
+          <div class="cert-pill"><span><img src="assets/icons/premio.png" alt="premio"
+                style="height: 30px; width: 30px;"></span> Melhor Lavanderia em Areado 2025</div>
+          <div class="cert-pill"><span><img src="assets/icons/energia-sustentavel.png" alt="sustentavel"
+                style="height: 30px; width: 30px;"></span> Empresa Sustentável SEBRAE</div>
+          <div class="cert-pill"><span><img src="assets/icons/estrela (2).png" alt=""
+                style="height: 30px; width: 30px;"></span> Nota 4.9 no Google (800+ avaliações)</div>
+          <div class="cert-pill"><span><img src="assets/icons/ok (1).png" alt="ok"
+                style="height: 30px; width: 30px;"></span> ISO 9001 — Gestão de Qualidade</div>
+          <div class="cert-pill"><span><img src="assets/icons/gotas-de-agua.png" alt="agua"
+                style="height: 30px; width: 30px;"></span> Certificado Uso Racional da Água</div>
+          <div class="cert-pill"><span><img src="assets/icons/construcao-de-confianca.png" alt="confiança"
+                style="height: 30px; width: 30px;"></span> Procon
+            — Empresa Confiável</div>
         </div>
       </div>
     </section>
@@ -1751,19 +1788,25 @@
             <h3>Trabalhamos com</h3>
             <div class="work-items">
               <div class="work-item">
-                <div class="work-item-icon">👔</div> Roupas do dia a dia e roupas sociais
+                <div class="work-item-icon"><img src="assets/icons/camiseta.png" alt="camiseta"
+                    style="height: 25px; width: 25px;"></div> Roupas do dia a dia e roupas sociais
               </div>
               <div class="work-item">
-                <div class="work-item-icon">🛏️</div> Cama, banho e enxoval completo
+                <div class="work-item-icon"><img src="assets/icons/cama-de-casal.png" alt="cama"
+                    style="height: 25px; width: 25px;"></div> Cama, banho e enxoval completo
               </div>
               <div class="work-item">
-                <div class="work-item-icon">🧥</div> Cobertores, edredons e cortinas
+                <div class="work-item-icon"><img src="assets/icons/cobertor.png" alt="cobertor"
+                    style="height: 25px; width: 25px;"></div>
+                Cobertores, edredons e cortinas
               </div>
               <div class="work-item">
-                <div class="work-item-icon">🏢</div> Empresas, hotéis e condomínios
+                <div class="work-item-icon"><img src="assets/icons/predio-comercial.png" alt="hotem"
+                    style="height: 25px; width: 25px;"></div> Empresas, hotéis e condomínios
               </div>
               <div class="work-item">
-                <div class="work-item-icon">⚡</div> Serviço expresso em 24 horas
+                <div class="work-item-icon"><img src="assets/icons/raio (1).png" alt="expresso"
+                    style="height: 25px; width: 25px;"></div> Serviço expresso em 24 horas
               </div>
             </div>
           </div>

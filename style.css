@@ -58,6 +58,10 @@ body {
     overflow-x: hidden;
 }
 
+main {
+    overflow-x: hidden;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -400,7 +404,7 @@ button {
        HERO
     ============================================================ */
 .hero {
-    padding-top: calc(var(--nav-h) + 80px);
+    padding-top: calc(var(--nav-h) + 25px);
     padding-bottom: 80px;
     background: var(--white);
     position: relative;
@@ -528,7 +532,7 @@ button {
     align-items: center;
     justify-content: center;
     display: flex;
-    min-height: 100%;
+    min-height: 70%;
 }
 
 .hero-image-wrap {
@@ -540,7 +544,7 @@ button {
     box-shadow: var(--shadow-lg);
     object-fit: cover;
     position: relative;
-    height: 700px;
+    height: 60vh;
     width: 100%;
 }
 
@@ -554,7 +558,7 @@ button {
 
 .hero-image-wrap img {
     height: 100%;
-    width: auto;
+    width: 100%;
     object-fit: cover;
 
 }
@@ -935,10 +939,10 @@ button {
 .calc-table th {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: .05em;
     text-transform: uppercase;
-    padding: 14px 20px;
+    padding: 12px 18px;
     text-align: left;
 }
 
@@ -960,7 +964,7 @@ button {
 }
 
 .calc-table td {
-    padding: 14px 20px;
+    padding: 5px 5px;
     font-size: 15px;
     color: var(--gray-800);
 }

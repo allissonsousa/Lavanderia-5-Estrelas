@@ -57,11 +57,11 @@
 
     <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
       <a href="#servicos">Serviços</a>
-      <a href="#calculadora">Calcule o Preço</a>
       <a href="#planos">Planos</a>
       <a href="#depoimentos">Depoimentos</a>
+      <a href="sobre.html">Sobre nós</a>
       <a href="blog/blog-index.html">Blog</a>
-      <a href="#contato" class="btn btn--primary" style="text-align:center">Orçamento grátis</a>
+      <a href="#calculadora">Orçamento grátis</a>
     </div>
   </header>
 
@@ -110,14 +110,18 @@
               <img src="assets/lavanderia.jpg" alt="Roupas limpas e organizadas">
             </div>
             <div class="hero-badge">
-              <div class="hero-badge-icon">⭐</div>
+              <div class="hero-badge-icon">
+                <img src="assets/icons/estrela (1).png" alt="estrela" style="height: 20px; width: 20px;">
+              </div>
               <div class="hero-badge-text">
                 <strong>Avaliação 4.9/5</strong>
                 <span>+300 avaliações</span>
               </div>
             </div>
             <div class="hero-badge2">
-              <strong>🚚</strong>
+              <strong>
+                <img src="assets/icons/caminhao.png" alt="estrela" style="height: 50px; width: 50px;">
+              </strong>
               <span>Coleta e entrega grátis<br>em nossa cidade</span>
             </div>
           </div>
@@ -138,23 +142,31 @@
         </div>
         <div class="features-grid">
           <div class="feature-card">
-            <span class="feature-icon">⚡</span>
+            <span class="feature-icon">
+              <img src="assets/icons/raio (1).png" alt="estrela" style="height: 50px; width: 50px;">
+            </span>
             <div class="feature-title">Serviço Expresso</div>
             <div class="feature-desc">Entregamos em até 24 horas para pedidos urgentes, sem abrir mão da qualidade.
             </div>
           </div>
           <div class="feature-card">
-            <span class="feature-icon">🧴</span>
+            <span class="feature-icon">
+              <img src="assets/icons/sabonete.png" alt="estrela" style="height: 50px; width: 50px;">
+            </span>
             <div class="feature-title">Produtos Premium</div>
             <div class="feature-desc">Usamos produtos hipoalergênicos e ecológicos que preservam tecidos e cores.</div>
           </div>
           <div class="feature-card">
-            <span class="feature-icon">🚚</span>
+            <span class="feature-icon">
+              <img src="assets/icons/entrega-rapida.png" alt="estrela" style="height: 50px; width: 50px;">
+            </span>
             <div class="feature-title">Coleta e Entrega</div>
             <div class="feature-desc">Buscamos e entregamos em casa ou no trabalho, no horário que você preferir.</div>
           </div>
           <div class="feature-card">
-            <span class="feature-icon">🛡️</span>
+            <span class="feature-icon">
+              <img src="assets/icons/escudo.png" alt="estrela" style="height: 50px; width: 50px;">
+            </span>
             <div class="feature-title">Garantia Total</div>
             <div class="feature-desc">Se não ficar satisfeito, lavamos novamente sem custo. Sua satisfação em primeiro
               lugar.</div>
@@ -309,7 +321,9 @@
             <h3>Resumo do pedido</h3>
             <div class="calc-items-list" id="calcItemsList">
               <div class="calc-empty" id="calcEmpty">
-                <div class="icon">🧺</div>
+                <div class="icon">
+                  <img src="assets/icons/vazio.png" alt="estrela" style="height: 50px; width: 50px;">
+                </div>
                 <p>Adicione peças para<br>calcular o total</p>
               </div>
             </div>
@@ -401,7 +415,9 @@
 
           <!-- PLANO FAMÍLIA (popular) -->
           <div class="plan-card plan-card--popular">
-            <div class="plan-badge">⭐ Mais popular</div>
+            <div class="plan-badge" style="display: flex ;justify-content: center;">
+              <img src="assets/icons/estrela (1).png" alt="estrela" style="height: 20px; width: 20px;"> Mais popular
+            </div>
             <div class="plan-name">Plano Família</div>
             <div class="plan-price">
               <span class="plan-currency">R$</span>
@@ -477,7 +493,15 @@
 
         <!-- Nota de garantia -->
         <p style="text-align:center; margin-top:40px; font-size:14px; color:var(--gray-400)">
-          🔒 Cancelamento após 6 meses sem multa · ✉️ Boleto ou cartão de crédito · 🎁 Coleta e entrega grátis.
+          <img src="assets/icons/escudo.png" alt="escudo"
+            style="height: 20px; width: 20px; display: inline-block; transform: translateY(5px);">
+          Cancelamento após 6 meses sem multa ·
+          <img src="assets/icons/cartao-de-credito.png" alt="cartao-de-credit"
+            style="height: 20px; width: 20px; display: inline-block;transform: translateY(5px);">
+          Boleto ou cartão de crédito ·
+          <img src="assets/icons/entrega-rapida.png" alt="cartao-de-credit"
+            style="height: 20px; width: 20px; display: inline-block;transform: translateY(5px);">
+          Coleta e entrega grátis.
         </p>
       </div>
     </section>
@@ -876,7 +900,8 @@
       } else {
         listEl.innerHTML = `
           <div class="calc-empty" id="calcEmpty">
-            <div class="icon">🧺</div>
+            <div class="icon" style="display:flex; align-items: center; justify-content:center">
+              <img src="assets/icons/vazio.png" alt="estrela" style="height: 50px; width: 50px; align-self:center"></div>
             <p>Adicione peças para<br>calcular o total</p>
           </div>`;
       }
