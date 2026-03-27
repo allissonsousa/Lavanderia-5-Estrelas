@@ -481,27 +481,6 @@
       transform: scale(1.03);
     }
 
-    .mosaic-cell:nth-child(1) {
-      background: linear-gradient(135deg, rgba(0, 181, 226, .25), rgba(0, 181, 226, .08));
-    }
-
-    .mosaic-cell:nth-child(2) {
-      background: linear-gradient(135deg, rgba(255, 243, 176, .15), rgba(255, 229, 102, .08));
-      aspect-ratio: auto;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
-
-    .mosaic-cell:nth-child(3) {
-      background: rgba(255, 255, 255, .04);
-    }
-
-    .mosaic-cell:nth-child(4) {
-      background: linear-gradient(135deg, rgba(0, 144, 184, .3), rgba(0, 110, 143, .15));
-    }
 
     .mosaic-stat {
       text-align: left;
